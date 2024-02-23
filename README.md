@@ -19,7 +19,7 @@ Below is an EasyLanguage implementation that calls the UserHasPermission functio
 ```pascal
 DefineDLLFunc: "C:\ProgramData\TradingAppStore\x86\TASlicense.dll",  int, "UserHasPermission", lpstr, lpstr, bool, bool;
 vars:
-	string _TS_num(“TradeStation-” + "__GET_TradeStation_NUM__"),
+	string _TS_num("TradeStation-" + "__GET_TradeStation_NUM__"),
 	string _productId("__INSERT_PRODUCT_SKU__")
 bool debug =  true
 bool tasAUTH = false;
