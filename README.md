@@ -16,7 +16,7 @@ You may download the installer for TradingAppStore from the vendor portal whenev
 
 ## Implementation
 Below is an EasyLanguage implementation that calls the UserHasPermission function of the TradingAppStore DLL:
-```EasyLanguage
+```pascal
 DefineDLLFunc: "C:\ProgramData\TradingAppStore\x86\TASlicense.dll",  int, "UserHasPermission", lpstr, lpstr, bool, bool;
 vars:
 	string _TS_num(“TradeStation-” + "__GET_TradeStation_NUM__"),
