@@ -94,9 +94,14 @@ The DLL will return various error values based on numerous factors. It is up to 
 9 - other error
 ```
 
+## Sales Information - Set Price:
+This is the price per period for the subscription term of the product.  Revenue splits are explained in the Vendor Agreement (need link to it here).
 
 ## Upload Software Here:
 Once your product is successfully integrated into our permissioning system, take the product out of debug mode (see bool debug above), and export a protected ELD.  If you have accompanying files, workspaces, symbol lists, etc, zip everything into one file, and then upload it here.  This is what will be distributed to end-users at the time of purchase or free trial.
+
+## Send for approval:
+Click here to send this listing for approval by TAS site moderators.  You will be notified by email up acceptace or rejection.
 
 
 ## Other Notes
