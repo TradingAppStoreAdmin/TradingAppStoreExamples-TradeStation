@@ -93,6 +93,12 @@ The DLL will return various error values based on numerous factors. It is up to 
 8 - File Error
 9 - other error
 ```
+
+
+## Upload Software Here:
+Once your product is successfully integrated into our permissioning system, take the product out of debug mode (see bool debug above), and export a protected ELD.  If you have accompanying files, workspaces, symbol lists, etc, zip everything into one file, and then upload it here.  This is what will be distributed to end-users at the time of purchase or free trial.
+
+
 ## Other Notes
 If you are planning on using other apps sold from TradingApp.Store, you must first uninstall the vendor installation and delete the TradingAppStore folder located at C:/ProgramData/ . This will insure that there will be no conflict between the license generated whenever you buy a real product and the debug license used for testing.
 
