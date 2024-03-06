@@ -61,12 +61,14 @@ Below is an EasyLanguage implementation that calls the UserHasPermission functio
 ```pascal
 DefineDLLFunc: "C:\ProgramData\TradingAppStore\x86\TASlicense.dll",  int, "UserHasPermission", lpstr, lpstr, bool, bool;
 vars:
-string TS_num("TradeStation-" + Customerid.ToString()),  //
-string productId(""),
-bool debug(false),		//True for Vendor testing, False for release products.
-bool tasAUTH(false);		//True to restrict this product to only one machine.  False to allow any machine logged into the authorized TradeStation account to use.
+intrabarpersist	string TS_CustomerNumber(""),  
+intrabarpersist	string productId("")
+intrabarpersist bool debug(false),		  //True for Vendor testing, False for release products.
+intrabarpersist bool tasAUTH(false);		//True to restrict this product to only one machine.  False to allow any machine logged into the authorized TradeStation account to use.
 
-print(numToStr(UserHasPermission(TS_num, productId, debug, tasAUTH), 0));
+TS_CustomerNumber = "TradeStation-" + Customerid.ToString();
+productId = "Insert_SKU_Here";	
+Print("User Has Permission: ", UserHasPermission(TS_CustomerNumber, productId, true, false));
 
 ```
 
