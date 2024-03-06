@@ -2,51 +2,40 @@
 ## Description
 TradingApp.Store offers a comprehensive software suite enabling vendors to verify user permissions for their products. The suite comprises digitally signed Dynamic Link Libraries (DLLs) containing API functions accessible via EasyLanguage scripts integrated into your software.
 
-## Setup
+### Setup
 Go to vendors.tradingapp.store, create a vendor account, and click the 'Create Listing' button at the top right. Procede to fill out the Product Listing Form:
 
-Basic Information
-
-Product Name:
+# Product Name:
 Fill out a Product Name at the top left and a SKU will be automatically produced at the bottom of the page (this will identify your product on our servers). 
 
-Product Description:
+# Product Description:
 Fill out a product description that fully explains your product, benefits, and how it works.  Give as much detail as possible.  
 
-
-Specifications
-
-Listing Types:
+# Listing Types:
 Check all that apply to this product.  Your product may fit into more than one Listing Type.  
 
-Subscription Options:
+# Subscription Options:
 Choose the type of billing scheme to use. (Such as Lifetime, Annual, Monthly, Free Trial + Monthly, etc)
 
-Upload Software Here:
+# Upload Software Here:
 ***Skip this step temporarily because you first need to integrate the TAS subscription verification DLL into your custom software by following the directions below.  This will be the final step below before deployment.*
 
-
-Post-Purchase Details
-
-Webhook Link:
+# Webhook Link:
 If you have a realtime listening application that works with Webhooks, paste the link to it here to be notified when a purchase for this product is made.
 
-Purchase Email:
+# Purchase Email:
 If you would like email notifications upon purchases, place the receiving address here.
 
-
-Software Details
-
-Target Platform:
+# Target Platform:
 Choose TradeStation
 
-TradeStation customer number:
+# TradeStation customer number:
 Enter your TradeStation customer number which can be found in the 'Help | About TradeStation' section.  This is used to create your master key license for integration testing on your copy of TradeStation.
 
-SKU:
+# SKU:
 Unique self-created product identifier that you will use in your script while accessing the DLL.
 
-Download MSI:
+# Download MSI:
 Press this to download a copy of the 'TradingApp.Store License Manager' that is master-keyed to this specific product and specifically to your TradeStation customer number.  This provides you, the Vendor, the ability to test your integrations of your products with our DLLs.  After installing this MSI, launch the TradingApp.Store license manager application to see the generated license.  
 
 
@@ -94,18 +83,18 @@ The DLL will return various error values based on numerous factors. It is up to 
 9 - other error
 ```
 
-## Sales Information - Set Price:
+# Sales Information - Set Price:
 This is the price per period for the subscription term of the product.  Revenue splits are explained in the Vendor Agreement (need link to it here).
 
-## Upload Software Here:
+# Upload Software Here:
 Once your product is successfully integrated into our permissioning system, take the product out of debug mode (see bool debug above), and export a protected ELD.  If you have accompanying files, workspaces, symbol lists, etc, zip everything into one file, and then upload it here.  This is what will be distributed to end-users at the time of purchase or free trial.
 
-## Send for approval:
+# Send for approval:
 Click here to send this listing for approval by TAS site moderators.  You will be notified by email up acceptace or rejection.
 
 
-## Other Notes
+# Other Notes
 If you are planning on using other apps sold from TradingApp.Store, you must first uninstall the vendor installation and delete the TradingAppStore folder located at C:/ProgramData/ . This will insure that there will be no conflict between the license generated whenever you buy a real product and the debug license used for testing.
 
-## Further Help
+# Further Help
 If you need assistance in implementation, you may email support@tradingapp.store and we will respond as quickly as possible.
