@@ -5,12 +5,12 @@ TradingApp.Store offers a comprehensive software suite enabling vendors to verif
 ## Setup
 Go to vendors.tradingapp.store, create a vendor account, and click the 'Create Listing' button at the top right. Procede to fill out the Product Listing Form:
 
-Basic Information:
+Basic Information
 
-Product Name
+Product Name:
 Fill out a Product Name at the top left and a SKU will be automatically produced at the bottom of the page (this will identify your product on our servers). 
 
-Product Description
+Product Description:
 Fill out a product description that fully explains your product, benefits, and how it works.  Give as much detail as possible.  
 
 
@@ -19,11 +19,11 @@ Specifications
 Listing Types:
 Check all that apply to this product.  Your product may fit into more than one Listing Type.  
 
-Subscription Options
+Subscription Options:
 Choose the type of billing scheme to use. (Such as Lifetime, Annual, Monthly, Free Trial + Monthly, etc)
 
 Upload Software Here:
-Skip this step temporarily because you first need to integrate the TAS subscription verification DLL into your custom software by following the directions below.  This will be the final step before deployment.
+***Skip this step temporarily because you first need to integrate the TAS subscription verification DLL into your custom software by following the directions below.  This will be the final step before deployment.*
 
 
 Post-Purchase Details
@@ -40,10 +40,15 @@ Software Details
 Target Platform:
 Choose TradeStation
 
+TradeStation customer number:
+Enter your TradeStation customer number which can be found in the 'Help | About TradeStation' section.  This is used to create your master key license for integration testing on your copy of TradeStation.
 
+SKU:
+Unique self-created product identifier that you will use in your script while accessing the DLL.
 
+Download MSI:
+Press this to download a copy of the 'TradingApp.Store License Manager' that is master-keyed to this specific product and specifically to your TradeStation customer number.  This provides you, the Vendor, the ability to test your integrations of your products with our DLLs.  After installing this MSI, launch the TradingApp.Store license manager application to see the generated license.  
 
-target platform (TradeStation), and an optional username that will be embedded into the license. This is useful if you'd like to offload machine authorization to a third party, like if you have your own username/password login system that you'd like to use. If no username, put "none". After filling out the details, click "Generate MSI" and proceed to install the downloaded MSI file. You can then launch the TradingApp.Store license manager application to see the generated license.  
 
 ![TradingApp.Store License Manager](licensemanager_screenshot.png)  
 
