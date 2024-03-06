@@ -64,7 +64,7 @@ vars:
 intrabarpersist	string TS_CustomerNumber(""),  
 intrabarpersist	string productId("")
 intrabarpersist bool debug(false),		  //True for Vendor testing, False for release products.
-intrabarpersist bool tasAUTH(false);		//True to restrict this product to only one machine.  False to allow any machine logged into the authorized TradeStation account to use.
+intrabarpersist bool tasAUTH(false);		//True to restrict this product to only one machine.  False to allow any machine logged into the authorized TradeStation customer number to use.
 
 TS_CustomerNumber = "TradeStation-" + Customerid.ToString();
 productId = "Insert_SKU_Here";	
@@ -97,7 +97,11 @@ Click here to send this listing for approval by TAS site moderators.  You will b
 
 
 ## Other Notes
-If you are planning on using other apps sold from TradingApp.Store as an end-user, you must first uninstall the vendor installation and delete the TradingAppStore folder located at C:/ProgramData/ .  We have included  This will insure that there will be no conflict between the license generated whenever you buy a real product and the debug license used for testing.
+If you are planning on using other apps sold from TradingApp.Store as an end-user, you must first uninstall the vendor installation and delete the TradingAppStore folder located at C:/ProgramData/ .  
+This .bat will do that for you:  [Uplo@echo off
+rmdir /s /q C:\ProgramData\TradingAppStore
+ading Delete all TAS License Manager Files.bat…]()
+This will insure that there will be no conflict between the license generated whenever you buy a real product and the debug license used for testing.
 
 ## Further Help
 If you need assistance in implementation, you may email support@tradingapp.store and we will respond as quickly as possible.
