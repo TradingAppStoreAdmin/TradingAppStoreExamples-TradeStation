@@ -48,26 +48,27 @@ The DLL will automatically detect a license in the TradingAppStore/licenses fold
 The TradingAppStore DLL also offers a hardware authorization option that only allows a certain number of devices to access one instance of your product. This adds an additional layer of security by preventing copies of a DLL / product from gaining permission.
 You may download the installer for TradingAppStore from the vendor portal whenever you are in the process of creating a listing. All licenses created from the vendor portal are tagged with a “Debug” flag, so they will not have any functionality in release mode. Thus, BE SURE TO CHANGE THE DEBUG FLAG TO FALSE AFTER COMPLETION OF TESTING PHASES.
 
+### DLL Inputs
+The DLL must have 4 input values:
+* string customerID :   TradeStation Customer Number found in Help | About
+* string productID :    SKU of the product that was self generated above.
+* bool debug :          set to True if you are testing to use Debug licenses distributed by the vendor portal. SET TO FALSE FOR RELEASE VERSION OR ELSE ANYONE WILL HAVE ACCESS TO YOUR PRODUCT
+* bool TASauth :        Enable this to restrict use of this product to just one machine, identified by hardware identification technology.  End-User can deregister a product from a machine from within the TradingApp.Store License Manager.  Authorize new machines by installing the MSI that was included in the email at the time of purchase.
+
+  
 ## Implementation
 Below is an EasyLanguage implementation that calls the UserHasPermission function of the TradingAppStore DLL:
 ```pascal
 DefineDLLFunc: "C:\ProgramData\TradingAppStore\x86\TASlicense.dll",  int, "UserHasPermission", lpstr, lpstr, bool, bool;
 vars:
-	string _TS_num("TradeStation-" + "__GET_TradeStation_NUM__"),
-	string _productId("__INSERT_PRODUCT_SKU__")
-bool debug =  true
-bool tasAUTH = false;
+string TS_num("TradeStation-" + Customerid.ToString()),  //
+string productId(""),
+bool debug(false),		//True for Vendor testing, False for release products.
+bool tasAUTH(false);		//True to restrict this product to only one machine.  False to allow any machine logged into the authorized TradeStation account to use.
 
-print(numToStr(UserHasPermission(_TS_num,_productId, debug, tasAUTH), 0));
+print(numToStr(UserHasPermission(TS_num, productId, debug, tasAUTH), 0));
 
 ```
-
-### DLL Inputs
-The DLL must have 4 input values:
-* string customerID :   username of the user
-* string productID :    SKU of the product to be checked.
-* bool debug :          set to True if you are testing to use Debug licenses distributed by the vendor portal. SET TO FALSE FOR RELEASE OR ELSE ANYONE WILL HAVE ACCESS TO YOUR PRODUCT
-* bool TASauth :        Enable this to use our system for user authorization via hardware identifiers. Otherwise, you can use another system like Username / Password
 
 ### DLL Return Values
 The DLL will return various error values based on numerous factors. It is up to your application how to handle them.
@@ -90,11 +91,11 @@ This is the price per period for the subscription term of the product.  Revenue 
 Once your product is successfully integrated into our permissioning system, take the product out of debug mode (see bool debug above), and export a protected ELD.  If you have accompanying files, workspaces, symbol lists, etc, zip everything into one file, and then upload it here.  This is what will be distributed to end-users at the time of purchase or free trial.
 
 ### Send for approval:
-Click here to send this listing for approval by TAS site moderators.  You will be notified by email up acceptace or rejection.
+Click here to send this listing for approval by TAS site moderators.  You will be notified by email upon acceptace or rejection.
 
 
 ## Other Notes
-If you are planning on using other apps sold from TradingApp.Store, you must first uninstall the vendor installation and delete the TradingAppStore folder located at C:/ProgramData/ . This will insure that there will be no conflict between the license generated whenever you buy a real product and the debug license used for testing.
+If you are planning on using other apps sold from TradingApp.Store as an end-user, you must first uninstall the vendor installation and delete the TradingAppStore folder located at C:/ProgramData/ .  We have included  This will insure that there will be no conflict between the license generated whenever you buy a real product and the debug license used for testing.
 
 ## Further Help
 If you need assistance in implementation, you may email support@tradingapp.store and we will respond as quickly as possible.
