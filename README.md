@@ -85,16 +85,16 @@ The DLL will return various error values based on numerous factors. It is up to 
 8 - File Error
 9 - other error
 ```
-### Final Phase
+## Finishing Up
 Go back to the Vendor Portal to complete your product setup.
 
-## Sales Information - Set Price:
+### Sales Information - Set Price:
 This is the price per period for the subscription term of the product.  Revenue splits are explained in the Vendor Agreement (need link to it here).
 
-## Upload Software Here:
+### Upload Software Here:
 Once your product is successfully integrated into our permissions system, take the product out of debug mode (see bool debug above), and export a protected ELD.  If you have accompanying files, workspaces, symbol lists, etc, zip everything into one file, and then upload it here.  This is what will be distributed to end-users at the time of purchase or free trial.
 
-## Send for approval:
+### Send for approval:
 Click here to send this listing for approval by TAS site moderators.  You will be notified by email upon acceptance or rejection.
 
 
