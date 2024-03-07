@@ -3,13 +3,13 @@
 TradingApp.Store offers a comprehensive software suite enabling vendors to verify user permissions for their products. The suite comprises digitally signed Dynamic Link Libraries (DLLs) containing API functions accessible via EasyLanguage scripts integrated into your software.
 
 ## Setup
-Go to vendors.tradingapp.store, create a vendor account, and click the 'Create Listing' button at the top right. Procede to fill out the Product Listing form.  Instructions below.
+Go to vendors.tradingapp.store, create a vendor account, and click the 'Create Listing' button at the top right. Proceed to fill out the Product Listing form.  Instructions below.
 
 ### Product Name:
 Fill out a Product Name at the top left and a SKU will be automatically produced at the bottom of the page (this will identify your product on our servers). 
 
 ### Product Description:
-Fill out a product description that fully explains your product, benefits, and how it works.  Give as much detail as possible.  
+Fill out a product description that fully explains your product, its benefits, and how it works.  Give as much detail as possible.  
 
 ### Listing Types:
 Check all that apply to this product.  Your product may fit into more than one Listing Type.  
@@ -21,7 +21,7 @@ Choose the type of billing scheme to use. (Such as Lifetime, Annual, Monthly, Fr
 ***Skip this step temporarily because you first need to integrate the TAS subscription verification DLL into your custom software by following the directions below.  This will be the final step below before deployment.*
 
 ### Webhook Link:
-If you have a realtime listening application that works with Webhooks, paste the link to it here to be notified when a purchase for this product is made.
+If you have a real-time listening application that works with Webhooks, paste the link to it here to be notified when a purchase for this product is made.
 
 ### Purchase Email:
 If you would like email notifications upon purchases, place the receiving address here.
@@ -36,7 +36,7 @@ Enter your TradeStation customer number which can be found in the 'Help | About 
 Unique self-created product identifier that you will use in your script while accessing the DLL.
 
 ### Download MSI:
-Press this to download a copy of the 'TradingApp.Store License Manager' that is master-keyed to this specific product and specifically to your TradeStation customer number.  This provides you, the Vendor, the ability to test your integrations of your products with our DLLs.  After installing this MSI, launch the TradingApp.Store license manager application to see the generated license.  
+Press this to download a copy of the 'TradingApp.Store License Manager' that is master-keyed to this specific product and specifically to your TradeStation customer number.  This provides you, the Vendor, the ability to test the integrations of your products with our DLLs.  After installing this MSI, launch the TradingApp.Store license manager application to see the generated license.  
 
 
 ![TradingApp.Store License Manager](licensemanager_screenshot.png)  
@@ -85,15 +85,17 @@ The DLL will return various error values based on numerous factors. It is up to 
 8 - File Error
 9 - other error
 ```
+### Final Phase
+Go back to the Vendor Portal to complete your product setup.
 
-### Sales Information - Set Price:
+## Sales Information - Set Price:
 This is the price per period for the subscription term of the product.  Revenue splits are explained in the Vendor Agreement (need link to it here).
 
-### Upload Software Here:
-Once your product is successfully integrated into our permissioning system, take the product out of debug mode (see bool debug above), and export a protected ELD.  If you have accompanying files, workspaces, symbol lists, etc, zip everything into one file, and then upload it here.  This is what will be distributed to end-users at the time of purchase or free trial.
+## Upload Software Here:
+Once your product is successfully integrated into our permissions system, take the product out of debug mode (see bool debug above), and export a protected ELD.  If you have accompanying files, workspaces, symbol lists, etc, zip everything into one file, and then upload it here.  This is what will be distributed to end-users at the time of purchase or free trial.
 
-### Send for approval:
-Click here to send this listing for approval by TAS site moderators.  You will be notified by email upon acceptace or rejection.
+## Send for approval:
+Click here to send this listing for approval by TAS site moderators.  You will be notified by email upon acceptance or rejection.
 
 
 ## Other Notes
