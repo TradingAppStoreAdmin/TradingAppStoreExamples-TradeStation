@@ -100,9 +100,7 @@ Click here to send this listing for approval by TAS site moderators.  You will b
 
 ## Other Notes
 If you are planning on using other apps sold from TradingApp.Store as an end-user, you must first uninstall the vendor installation and delete the TradingAppStore folder located at C:/ProgramData/ .  
-This .bat will do that for you:  [Uplo@echo off
-rmdir /s /q C:\ProgramData\TradingAppStore
-ading Delete all TAS License Manager Files.bat…]()
+This .bat will do that for you:  ![Delete TAS Folder Batch File](Delete_TAS_Folder.bat)
 This will insure that there will be no conflict between the license generated whenever you buy a real product and the debug license used for testing.
 
 ## Further Help
