@@ -17,9 +17,6 @@ Check all that apply to this product.  Your product may fit into more than one L
 ### Subscription Options:
 Choose the type of billing scheme to use. (Such as Lifetime, Annual, Monthly, Free Trial + Monthly, etc)
 
-### Upload Software Here:
-***Skip this step temporarily because you first need to integrate the TAS subscription verification DLL into your custom software by following the directions below.  This will be the final step below before deployment.*
-
 ### Webhook Link:
 If you have a real-time listening application that works with Webhooks, paste the link to it here to be notified when a purchase for this product is made.
 
