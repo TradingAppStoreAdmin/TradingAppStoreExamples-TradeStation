@@ -49,26 +49,23 @@ The TradingAppStore DLL also offers a hardware authorization option that only al
 You may download the installer for TradingAppStore from the vendor portal whenever you are in the process of creating a listing. All licenses created from the vendor portal are tagged with a “Debug” flag, so they will not have any functionality in release mode. Thus, BE SURE TO CHANGE THE DEBUG FLAG TO FALSE AFTER COMPLETION OF TESTING PHASES.
 
 ### DLL Inputs
-The DLL must have 4 input values:
+The DLL must have 3 input values:
 * string customerID :   TradeStation Customer Number found in Help | About
 * string productID :    SKU of the product that was self generated above.
 * bool debug :          set to True if you are testing to use Debug licenses distributed by the vendor portal. SET TO FALSE FOR RELEASE VERSION OR ELSE ANYONE WILL HAVE ACCESS TO YOUR PRODUCT
-* bool TASauth :        Enable this to restrict use of this product to just one machine, identified by hardware identification technology.  End-User can deregister a product from a machine from within the TradingApp.Store License Manager.  Authorize new machines by installing the MSI that was included in the email at the time of purchase.
-
   
 ## Implementation
 Below is an EasyLanguage implementation that calls the UserHasPermission function of the TradingAppStore DLL:
 ```pascal
-DefineDLLFunc: "C:\ProgramData\TradingAppStore\x86\TASlicense.dll",  int, "UserHasPermission", lpstr, lpstr, bool, bool;
+DefineDLLFunc: "C:\ProgramData\TradingAppStore\x86\TASlicense.dll",  int, "UsePlatformAuthorization", lpstr, lpstr, bool;
 vars:
 intrabarpersist	string TS_CustomerNumber(""),  
 intrabarpersist	string productId("")
 intrabarpersist bool debug(false),		  //True for Vendor testing, False for release products.
-intrabarpersist bool tasAUTH(false);		//True to restrict this product to only one machine.  False to allow any machine logged into the authorized TradeStation customer number to use.
 
 TS_CustomerNumber = "TradeStation-" + Customerid.ToString();
 productId = "Insert_SKU_Here";	
-Print("User Has Permission: ", UserHasPermission(TS_CustomerNumber, productId, true, false));
+Print("User Has Permission: ", UsePlatformAuthorization(TS_CustomerNumber, productId, debug));
 
 ```
 
@@ -88,11 +85,11 @@ The DLL will return various error values based on numerous factors. It is up to 
 ## Finishing Up
 Go back to the Vendor Portal to complete your product setup.
 
-### Sales Information - Set Price:
-This is the price per period for the subscription term of the product.  Revenue splits are explained in the Vendor Policy (https://tradingapp.store/pages/vendor-policy).
-
 ### Upload Software Here:
 Once your product is successfully integrated into our permissions system, take the product out of debug mode (see bool debug above), and export a protected ELD.  If you have accompanying files, workspaces, symbol lists, etc, zip everything into one file, and then upload it here.  This is what will be distributed to end-users at the time of purchase or free trial.
+
+### Sales Information - Set Price:
+This is the price per period for the subscription term of the product.  Revenue splits are explained in the Vendor Policy (https://tradingapp.store/pages/vendor-policy).
 
 ### Send for approval:
 Click here to send this listing for approval by TAS site moderators.  You will be notified by email upon acceptance or rejection.
