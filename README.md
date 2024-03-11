@@ -9,7 +9,10 @@ Go to vendors.tradingapp.store, create a vendor account, and click the 'Create L
 Fill out a Product Name at the top left and a SKU will be automatically produced at the bottom of the page (this will identify your product on our servers). 
 
 ### Product Description:
-Fill out a product description that fully explains your product, its benefits, and how it works.  Give as much detail as possible.  
+Create a formated product description in an editor like Word or Google Docs and then paste it into the Product Description text-box. Read over it and do a final editing of the formatting to make sure it looks right. The product description should fully explain your product, its features, benefits, and how it works. Give as much detail as possible.
+
+### Images:
+Add images and/or videos one at a time. Most file common file types are accepted. You can also use online videos from YouTube via the URL link.
 
 ### Listing Types:
 Check all that apply to this product.  Your product may fit into more than one Listing Type.  
