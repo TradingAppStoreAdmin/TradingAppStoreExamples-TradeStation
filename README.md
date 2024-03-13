@@ -18,7 +18,7 @@ Add images and/or videos one at a time. Most file common file types are accepted
 Check all that apply to this product.  Your product may fit into more than one Listing Type.  
 
 ### Subscription Options:
-Choose the type of billing scheme to use. (Such as Lifetime, Annual, Monthly, Free Trial + Monthly, etc)
+Choose the type of billing scheme to use. Available options are: Lifetime, Annual, Monthly, Free Trial + Monthly, Free Trial + Annual, Free Trial + Lifetime.
 
 ### Webhook Link:
 If you have a real-time listening application that works with Webhooks, paste the link to it here to be notified when a purchase for this product is made.
