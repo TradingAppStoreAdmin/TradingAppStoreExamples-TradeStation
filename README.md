@@ -65,7 +65,7 @@ vars: StreamReader myFile, string magicNum, WebClient wc,WebHeaderCollection hea
 Begin
 	
     // This gets a one-time-use magic number from a utility dll
-    GetMagicNumber();
+    	GetMagicNumber();
 	myFile = StreamReader.Create("C:\ProgramData\TradingAppStore\temp\magic.txt", True);
 	magicNum = myFile.ReadToEnd();
 	myFile.Close();
