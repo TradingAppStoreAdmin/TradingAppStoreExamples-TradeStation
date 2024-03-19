@@ -64,7 +64,7 @@ method void Has_Access()
 vars: StreamReader myFile, string magicNum, WebClient wc,WebHeaderCollection headers, string json, string verifyDllResponse, string TS_CustomerNumber, string productId, bool debug, int authResponse, bool dllValid;
 Begin
 	
-    // This gets a one-time-use magic number from a utility dll
+    	// This gets a one-time-use magic number from a utility dll
     	GetMagicNumber();
 	myFile = StreamReader.Create("C:\ProgramData\TradingAppStore\temp\magic.txt", True);
 	magicNum = myFile.ReadToEnd();
