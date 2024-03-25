@@ -57,20 +57,32 @@ The DLL must have 3 input values:
 ## Implementation
 Below is an EasyLanguage implementation that calls the UserHasPermission function of the TradingAppStore DLL:
 ```pascal
+
+Using elsystem;
+Using tsdata.common; 
+Using elsystem.collections;
+Using elsystem.io;
+
 // import our DLLs
 DefineDLLFunc: "C:\ProgramData\TradingAppStore\x86\Utils.dll", int, "GetMagicNumber";
 DefineDLLFunc: "C:\ProgramData\TradingAppStore\x86\TASlicense.dll",  int, "UsePlatformAuthorization", lpstr, lpstr, bool;
 
-method void Has_Access()
-vars: StreamReader myFile, string magicNum, WebClient wc,WebHeaderCollection headers, string json, string verifyDllResponse, string TS_CustomerNumber, string productId, bool debug, int authResponse, bool dllValid;
+vars:
+intrabarpersist string productSKU("ProductSKUfromVendorPortal") //get this from your product listing page on the Vendor Portal in the Software Details section
+; 
+
+//This method returns if user has access or not as a bool, and should be called from your code to allow/deny access to your script.
+method bool Has_Access(string _ProductSKUfromVendorPortal)
+vars: StreamReader myFile, string magicNum, WebClient wc,WebHeaderCollection headers, string json, string verifyDllResponse, string TS_CustomerNumber, string productId, bool debug, int authResponse, bool dllValid, bool returnBool;
 Begin
-    	// This gets a one-time-use magic number from a utility dll
-    	GetMagicNumber();
+    // This gets a one-time-use magic number from a utility dll
+	GetMagicNumber();
+	
 	myFile = StreamReader.Create("C:\ProgramData\TradingAppStore\temp\magic.txt", True);
 	magicNum = myFile.ReadToEnd();
 	myFile.Close();
 	
-	// Now, let's send that magic number to our server to be verified
+	// Now, let's send that magic number to the TAS server to be verified
 	wc = WebClient.Create();
 	wc.Headers.Add("Content-Type: application/json");
 	json ="{" + Doublequote + "magic_number" + Doublequote + " : " + Doublequote + magicNum + Doublequote + "}";
@@ -87,18 +99,27 @@ Begin
 	if dllValid Then
 	begin	
 		// Define product information
-		productId = "Insert_SKU_Here";	
+		productId = _ProductSKUfromVendorPortal;	
 		debug = True;
 		TS_CustomerNumber = "TradeStation-" + Customerid.ToString();
 		
-		// Perform user authentication using TAS machine authorization
-		authResponse = UsePlatformAuthorization(TS_CustomerNumber, productId, debug);
-		Print("TAS auth response ", Numtostr(authResponse, 0)); // 0 indicates success
-		
-		// Process the returned errors accordingly
-		if authResponse = 0 Then
-		   print("Access Granted");
+		// Perform user authentication using TAS Platform Authorization
+		authResponse = -1;	//initialize to non-zero number
+		authResponse = UsePlatformAuthorization(TS_CustomerNumber, _ProductSKUfromVendorPortal, debug);
+		Print("TAS auth response ", Numtostr(authResponse, 0)); 
+		// 0 = success, 1 = expirted, 2 = wrong customerId, 3 = cannot use Debug license in Release Mode, 4 = invalid ProductID, 5 = Too many user instances.  6 = billing failure.  7 = File Error.  8 = other error
 	end;
+	
+	returnBool = dllValid and authResponse = 0;
+	
+	if returnBool Then
+			Print("Access Granted") else Print("Access Denied");
+	
+end;
+
+method void AnalysisTechnique_Initialized( elsystem.Object sender, elsystem.InitializedEventArgs args ) 
+begin
+	if not Has_Access(productSKU) Then RaiseRuntimeError("-- You are not authorized to use this product.  Please contact support@tradingapp.store");
 end;
 ```
 
