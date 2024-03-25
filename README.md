@@ -135,6 +135,7 @@ The DLL will return various error values based on numerous factors. It is up to 
 4 - invalid productId
 5 - Too many user instances. Only for TAS Authorization. Contact support@tradingapp.store
 6 - billing attempt not found... likely expired
+7 - internal error
 8 - File Error
 9 - other error
 ```
