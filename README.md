@@ -62,6 +62,7 @@ Using elsystem;
 Using tsdata.common; 
 Using elsystem.collections;
 Using elsystem.io;
+Using elsystem.net;
 
 // import our DLLs
 DefineDLLFunc: "C:\ProgramData\TradingAppStore\x86\Utils.dll", int, "GetMagicNumber";
