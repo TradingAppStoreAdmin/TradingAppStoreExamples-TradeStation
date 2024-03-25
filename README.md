@@ -115,7 +115,8 @@ Begin
 	
 	if returnBool Then
 			Print("Access Granted") else Print("Access Denied");
-	
+
+	return returnBool;	
 end;
 
 method void AnalysisTechnique_Initialized( elsystem.Object sender, elsystem.InitializedEventArgs args ) 
