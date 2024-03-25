@@ -60,10 +60,10 @@ Below is an EasyLanguage implementation that calls the UserHasPermission functio
 // import our DLLs
 DefineDLLFunc: "C:\ProgramData\TradingAppStore\x86\Utils.dll", int, "GetMagicNumber";
 DefineDLLFunc: "C:\ProgramData\TradingAppStore\x86\TASlicense.dll",  int, "UsePlatformAuthorization", lpstr, lpstr, bool;
+
 method void Has_Access()
 vars: StreamReader myFile, string magicNum, WebClient wc,WebHeaderCollection headers, string json, string verifyDllResponse, string TS_CustomerNumber, string productId, bool debug, int authResponse, bool dllValid;
 Begin
-	
     	// This gets a one-time-use magic number from a utility dll
     	GetMagicNumber();
 	myFile = StreamReader.Create("C:\ProgramData\TradingAppStore\temp\magic.txt", True);
@@ -80,13 +80,12 @@ Begin
 		print("VerifyDLL response: " + verifyDllResponse);
 		dllValid = verifyDllResponse = "ACCEPT";
 	catch(elsystem.exception ex)
-	   print("VerifyDLL returned exception " + ex.Message);
+		print("VerifyDLL returned exception " + ex.Message);
 	end;
 	
 	// After verifying the DLLs, you can safely use them to authorize your customers.
 	if dllValid Then
-	begin
-	
+	begin	
 		// Define product information
 		productId = "Insert_SKU_Here";	
 		debug = True;
