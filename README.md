@@ -69,11 +69,11 @@ DefineDLLFunc: "C:\ProgramData\TradingAppStore\x86\Utils.dll", int, "GetMagicNum
 DefineDLLFunc: "C:\ProgramData\TradingAppStore\x86\TASlicense.dll",  int, "UsePlatformAuthorization", lpstr, lpstr, bool;
 
 vars:
-intrabarpersist string productSKU("ProductSKUfromVendorPortal") //get this from your product listing page on the Vendor Portal in the Software Details section
-; 
+intrabarpersist string sProductSKU("ProductSKUfromVendorPortal"),	//get this from your product listing page on the Vendor Portal in the Software Details section
+intrabarpersist bool bVendorDebugMode(true);	//set to True if you are testing to use Debug licenses distributed by the vendor portal. SET TO FALSE FOR RELEASE OR ELSE ANYONE WILL HAVE ACCESS TO YOUR PRODUCT
 
 //This method returns if user has access or not as a bool, and should be called from your code to allow/deny access to your script.
-method bool Has_Access(string _ProductSKUfromVendorPortal)
+method bool Has_Access()
 vars: StreamReader myFile, string magicNum, WebClient wc,WebHeaderCollection headers, string json, string verifyDllResponse, string TS_CustomerNumber, string productId, bool debug, int authResponse, bool dllValid, bool returnBool;
 Begin
     // This gets a one-time-use magic number from a utility dll
@@ -99,14 +99,12 @@ Begin
 	// After verifying the DLLs, you can safely use them to authorize your customers.
 	if dllValid Then
 	begin	
-		// Define product information
-		productId = _ProductSKUfromVendorPortal;	
-		debug = True;
+		// Setup TradeStation Customer ID string 
 		TS_CustomerNumber = "TradeStation-" + Customerid.ToString();
 		
 		// Perform user authentication using TAS Platform Authorization
 		authResponse = -1;	//initialize to non-zero number
-		authResponse = UsePlatformAuthorization(TS_CustomerNumber, _ProductSKUfromVendorPortal, debug);
+		authResponse = UsePlatformAuthorization(TS_CustomerNumber, sProductSKU, bVendorDebugMode);
 		Print("TAS auth response ", Numtostr(authResponse, 0)); 
 		// 0 = success, 1 = expirted, 2 = wrong customerId, 3 = cannot use Debug license in Release Mode, 4 = invalid ProductID, 5 = Too many user instances.  6 = billing failure.  7 = File Error.  8 = other error
 	end;
@@ -121,7 +119,7 @@ end;
 
 method void AnalysisTechnique_Initialized( elsystem.Object sender, elsystem.InitializedEventArgs args ) 
 begin
-	if not Has_Access(productSKU) Then RaiseRuntimeError("-- You are not authorized to use this product.  Please contact support@tradingapp.store");
+	if not Has_Access() Then RaiseRuntimeError("-- You are not authorized to use this product.  Please contact support@tradingapp.store");
 end;
 ```
 
