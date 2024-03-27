@@ -119,6 +119,7 @@ end;
 
 method void AnalysisTechnique_Initialized( elsystem.Object sender, elsystem.InitializedEventArgs args ) 
 begin
+	//Comment out the following line to bypass the TAS authentication.
 	if not Has_Access() Then RaiseRuntimeError("-- You are not authorized to use this product.  Please contact support@tradingapp.store");
 end;
 ```
