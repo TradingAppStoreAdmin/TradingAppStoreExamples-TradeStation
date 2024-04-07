@@ -3,7 +3,7 @@
 TradingApp.Store offers a comprehensive software suite enabling vendors to verify user permissions for their products. The suite comprises digitally signed Dynamic Link Libraries (DLLs) containing API functions accessible via EasyLanguage scripts integrated into your software.
 
 ## Setup
-Go to [vendors.tradingapp.store](https://vendors.tradingapp.store/app), create a vendor account.  The first thing you want to do is create a Vendor Profile page, where you insert your company logo or icon.  500x500 pixels works best.  Enter a company bio or description, and contact information.  Send for Approval. This will enter you into this  [Vendor Directory](https://tradingapp.store/pages/vendor-directory).  Next create your first product listing by clicking the 'Create Listing' button at the top right. Proceed to fill out the Product Listing form.  Instructions below.
+Go to [vendors.tradingapp.store](https://vendors.tradingapp.store/app), create a vendor account.  The first thing you want to do is create a Vendor Profile page, where you insert your company logo or icon (500x500 pixels works best.)  Enter a company bio or description, and contact information.  Send for Approval. This will enter you into this  [Vendor Directory](https://tradingapp.store/pages/vendor-directory).  Next create your first product listing by clicking the 'Create Listing' button at the top right. Proceed to fill out the Product Listing form.  Instructions below.
 
 ### Product Name:
 Fill out a Product Name at the top left and a SKU will be automatically produced at the bottom of the page (this will identify your product on our servers). 
