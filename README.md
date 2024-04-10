@@ -106,7 +106,7 @@ Begin
 		authResponse = -1;	//initialize to non-zero number
 		authResponse = UsePlatformAuthorization(TS_CustomerNumber, sProductSKU, bVendorDebugMode);
 		Print("TAS auth response ", Numtostr(authResponse, 0)); 
-		// 0 = success, 1 = expirted, 2 = wrong customerId, 3 = cannot use Debug license in Release Mode, 4 = invalid ProductID, 5 = Too many user instances.  6 = billing failure.  7 = File Error.  8 = other error
+		// 0 = success, 1 = expired, 2 = wrong customerId, 3 = cannot use Debug license in Release Mode, 4 = invalid ProductID, 5 = Too many user instances.  6 = billing failure.  7 = File Error.  8 = other error
 	end;
 	
 	returnBool = dllValid and authResponse = 0;
