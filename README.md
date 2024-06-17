@@ -153,7 +153,7 @@ Click here to send this listing for approval by TAS site moderators.  You will b
 
 ## Other Notes
 The TradingApp.Store License Manager has the ability to switch between ‘End-User’ mode, and ‘Vendor Test Mode’ by-way of a checkbox at the top right of the TAS Lisence Manager labeled:  ‘Vendor Test Mode’.
-When it's checked only Vendor's products show in License Manager’s DataGrids, when unchecked, only End-User products show in DataGrids.
+When it's checked, only Vendor's products show in License Manager’s DataGrids, when unchecked, only End-User products show in DataGrids.
 If a Vendor is also an End-User of other’s products, they must use the same email address during registrations for each mode for this to work.  This enables one installation of this License Manager to handle both integration testing while in Vendor Mode, and alternatively using End-User mode for purchased products use.
 
 
