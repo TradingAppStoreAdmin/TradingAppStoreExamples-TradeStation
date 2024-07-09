@@ -39,7 +39,7 @@ Unique self-created product identifier that you will use in your script while ac
 (NOTE: You must pick a 'Target Platform' and enter 'TradeStation customer number' in order for the 'Download MSI' button to appear.)  Press this to download a copy of the 'TradingApp.Store License Manager' that is master-keyed to this specific product and specifically to your TradeStation customer number.  This provides you, the Vendor, the ability to test the integrations of your products with our DLLs.  After installing this MSI, launch the TradingApp.Store license manager application to see the generated license.  
 
 
-![TradingApp.Store License Manager](TAS License Manager - snapshot.png)  
+![TradingApp.Store License Manager](https://github.com/TradingAppStoreAdmin/TradingAppStoreExamples-TradeStation/blob/main/TAS%20License%20Manager%20-%20snapshot.png)  
 
 Your system is now ready for seamless integration with our platform.
 
